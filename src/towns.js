@@ -87,7 +87,10 @@ let loadingBlock = homeworkContainer.querySelector('#loading-block');
 let filterBlock = homeworkContainer.querySelector('#filter-block');
 let filterInput = homeworkContainer.querySelector('#filter-input');
 let filterResult = homeworkContainer.querySelector('#filter-result');
-let townsPromise;
+let townsPromise = loadTowns();
+
+filterBlock.style.display = 'block';
+loadingBlock.innerHTML = '';
 
 function resultToDataBlock(towns) {
     let result = '';
@@ -123,8 +126,7 @@ filterInput.addEventListener('keyup', function() {
 
     if (filterInput.value !== '') {
         loadingBlock.innerHTML = 'Загрузка...';
-        
-        loadTowns()
+        townsPromise
             .then((towns) => {
                 loadingBlock.innerHTML = '';
                 resultToDataBlock(towns);

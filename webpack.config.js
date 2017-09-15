@@ -16,10 +16,10 @@ loaders.push({
 module.exports = {
     entry: {
         main: './src/index.js',
-        townss: './src/towns.js'
+        towns: './src/towns.js'
     },
     output: {
-        filename: '[hash].js',
+        filename: '[name].[hash].js',
         path: path.resolve('dist')
     },
     devtool: 'source-map',
