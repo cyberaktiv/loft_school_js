@@ -22,7 +22,7 @@ module.exports = {
     devtool: 'source-map',
     module: {
         loaders
-    },
+    },    
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
@@ -32,8 +32,9 @@ module.exports = {
         }),
         new ExtractTextPlugin('styles.css'),
         new HtmlPlugin({
-            title: 'Loft School sample project',
-            template: 'index.hbs'
+            title: 'Friend Filter',
+            template: 'index.hbs',
+            css: './css/style.css'
         }),
         new CleanWebpackPlugin(['dist'])
     ]

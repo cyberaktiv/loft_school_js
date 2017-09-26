@@ -2,8 +2,13 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>{{htmlWebpackPlugin.options.title}}</title>
+  <title>{{htmlWebpackPlugin.options.title}}</title>  
+  <link rel="stylesheet" href="{{htmlWebpackPlugin.options.css}}">
+  <script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
 </head>
 <body>
+  <div id="container">    
+    {{> "./templates/content.hbs"}}
+  </div>
 </body>
 </html>
