@@ -1,3 +1,25 @@
+let friendsLeft = document.querySelector('#friends_left'),
+    friendsRight = document.querySelector('#friends_right'),
+    searchLeft = document.querySelector('#search_left'),
+    searchRight = document.querySelector('#search_right'),
+    saveButton = document.querySelector('#footer div'),
+    friendsListLeft = (localStorage.friendsListLeft)?JSON.parse(localStorage.friendsListLeft):{},
+    friendsListRight = (localStorage.friendsListRight)?JSON.parse(localStorage.friendsListRight):{};
+
+const promise = new Promise((resolve, reject) => {
+    VK.init({
+        apiId: 6197100
+    });
+
+    VK.Auth.login(data => {
+        if (data.session) {
+            resolve(data);
+        } else {
+            reject(new Error('Не удалось авторизоваться'));
+        }
+    }, 16);
+});
+
 function api(method, params) {
     
     return new Promise((resolve, reject) => {
@@ -43,12 +65,16 @@ function isMatching(full, chunk) {
 }
 
 function updateFriendsLeft(friends) {
+
     const render = require('../friend_left.hbs');
 
-    let template = '';
+    let template = '',
+        chunk = searchLeft.querySelector('input').value;
     
     for (let key in friends) {
-        template += render(friends[key]);
+        if (isMatching(friends[key].first_name, chunk) || isMatching(friends[key].last_name, chunk)) {
+            template += render(friends[key]);
+        }
     }
     document.querySelector('#friends_left').innerHTML = template;
 }
@@ -56,10 +82,14 @@ function updateFriendsLeft(friends) {
 function updateFriendsRight(friends) {
     const render = require('../friend_right.hbs');
 
-    let template = '';
+    let template = '',
+        chunk = searchRight.querySelector('input').value;
     
     for (let key in friends) {
-        template += render(friends[key]);
+
+        if (isMatching(friends[key].first_name, chunk) || isMatching(friends[key].last_name, chunk)) {
+            template += render(friends[key]);
+        }
     }
     document.querySelector('#friends_right').innerHTML = template;
 }
@@ -83,28 +113,6 @@ function dragstart(e) {
         e.dataTransfer.setData('id', e.target.querySelector('.action img').dataset.id);
     }
 }
-
-let friendsLeft = document.querySelector('#friends_left'),
-    friendsRight = document.querySelector('#friends_right'),
-    searchLeft = document.querySelector('#search_left'),
-    searchRight = document.querySelector('#search_right'),
-    saveButton = document.querySelector('#footer div'),
-    friendsListLeft = (localStorage.friendsListLeft)?JSON.parse(localStorage.friendsListLeft):{},
-    friendsListRight = (localStorage.friendsListRight)?JSON.parse(localStorage.friendsListRight):{};
-
-const promise = new Promise((resolve, reject) => {
-    VK.init({
-        apiId: 6197100
-    });
-
-    VK.Auth.login(data => {    
-        if (data.session) {
-            resolve(data);
-        } else {
-            reject(new Error('Не удалось авторизоваться'));
-        }
-    }, 16);
-});
 
 friendsLeft.addEventListener('click', (e) => {
         
