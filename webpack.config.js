@@ -34,7 +34,7 @@ module.exports = {
         new HtmlPlugin({
             title: 'Friend Filter',
             template: 'index.hbs',
-            css: './style.css'
+            css: './css/style.css'
         }),
         new CleanWebpackPlugin(['dist'])
     ]
