@@ -1,0 +1,133 @@
+#window_reviews {        
+    z-index: 99999;
+    border-radius: 10px;
+    position: fixed;
+    font-family: Verdana, sans-serif;
+    width: 300px;
+    height: 420px;
+    background-color: #fff;
+    font-size: 14px;    
+}
+
+#header {
+    background-color: #FF8663;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+    height: 8%;
+    width: 100%;
+}
+
+#reviews {
+    width: 90%;
+    height: 35%;
+    overflow: auto;
+    margin: 10px auto 0 auto;
+}
+
+#form_review {    
+    width: 100%;
+    height: 57%;    
+}
+
+#header span {
+    position: absolute;
+    margin: 10px 0 10px 17px;
+    font-size: 10px;
+}
+
+#closeWindowReviews {
+    cursor: pointer;
+    float: right;
+    margin: 5px;
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/close.png);
+    background-repeat: no-repeat;
+}
+
+#add-point-button {
+    float: right;
+    margin: 5px 14px 0 0;
+    padding: 8px 14px;
+    background-color: #FF8663;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 0;
+    outline: none;
+}
+#form_review span {
+    float: left;
+    color: #FF8663;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 5px 0 5px 14px;    
+    display: block;    
+    text-transform: uppercase;    
+}
+
+#form_review div {    
+    width: 90%;
+    margin: auto;    
+}
+
+#form_review input {
+    
+    border-radius: 15px;
+    outline:none;
+    border: 1px solid #cecece;
+    padding: 0 10px 0 10px;
+    outline: none;
+    height: 25px;
+    width: 92%;
+    margin-bottom: 7px;
+}
+
+#form_review textarea {
+    width: 92%;
+    border-radius: 15px;
+    outline:none;
+    border: 1px solid #cecece;
+    padding: 5px 10px 5px 10px;
+    resize: none;
+}
+
+.review {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+}
+
+.review span {
+    color: #969696;
+}
+
+#line {
+    border-top: 1px solid #F0F0F0;
+}
+
+.cluster_review {    
+    float: left;
+}
+
+.cluster_date {    
+    float: right;
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+}
+.cluster_address {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background-color:#C4C4C4;
+}
+
+::-webkit-scrollbar{
+    width: 4px;
+}
