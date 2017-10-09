@@ -32,8 +32,9 @@ module.exports = {
         }),
         new ExtractTextPlugin('styles.css'),
         new HtmlPlugin({
-            title: 'Loft School sample project',
-            template: 'index.hbs'
+            title: 'Places on map',
+            template: 'index.hbs',
+            css: './src/css/style.css'
         }),
         new CleanWebpackPlugin(['dist'])
     ]
