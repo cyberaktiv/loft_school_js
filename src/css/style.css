@@ -6,7 +6,7 @@
     width: 300px;
     height: 420px;
     background-color: #fff;
-    font-size: 14px;    
+    font-size: 14px;
 }
 
 #header {
@@ -20,23 +20,31 @@
 
 #reviews {
     width: 90%;
-    height: 35%;
+    height: 34%;
     overflow: auto;
     margin: 10px auto 0 auto;
 }
 
-#form_review {    
+#form_review {
     width: 100%;
-    height: 57%;    
+    height: 46%;
 }
 
-#header span {
+#footer {
+    height: 12%;
+}
+
+#address {
     position: absolute;
-    margin: 10px 0 10px 17px;
+    overflow: hidden;
+    width: 250px;
+    height: 30px;
+    line-height: 3.0;
+    margin: 3px 0 10px 15px;
     font-size: 10px;
 }
 
-#closeWindowReviews {
+#close_window_reviews {
     cursor: pointer;
     float: right;
     margin: 5px;
@@ -47,23 +55,25 @@
 }
 
 #add-point-button {
-    float: right;
+    float: right;    
     margin: 5px 14px 0 0;
     padding: 8px 14px;
     background-color: #FF8663;
     color: #fff;
     cursor: pointer;
     border-radius: 10px;
+    font-size: 12px;
     border: 0;
-    outline: none;
+    outline: none;    
 }
-#form_review span {
+
+#review_title {
     float: left;
     color: #FF8663;
     font-weight: bold;
     font-size: 14px;
     margin: 5px 0 5px 14px;    
-    display: block;    
+    display: block;
     text-transform: uppercase;    
 }
 
@@ -106,7 +116,19 @@
     border-top: 1px solid #F0F0F0;
 }
 
-.cluster_review {    
+.message_popup {
+    background-color: #969696;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    z-index: 99999;
+    border-radius: 3px;
+    top: 40px;
+    right: 15px;
+    position: absolute;
+}
+
+.cluster_review {
     float: left;
 }
 

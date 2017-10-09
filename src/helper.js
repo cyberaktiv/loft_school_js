@@ -1,13 +1,4 @@
 module.exports = {
-    cutLongString(s, max) {
-        let cutString = s.substr(0, max);
-        
-        if (s.length !== cutString.length) {
-            cutString += '...';
-        }
-        
-        return cutString;
-    },
     currentDate() {
         let date = new Date();
     
@@ -21,5 +12,14 @@ module.exports = {
         ];
 
         return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;        
+    },
+    getOffsetPosition(e) {
+        let target = e.target || e.srcElement,
+            rect = target.getBoundingClientRect();
+
+        return {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        }
     }
 };

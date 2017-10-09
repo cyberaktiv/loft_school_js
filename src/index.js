@@ -38,7 +38,6 @@ let App = function() {
                     sessionStorage.setItem('currentMark', JSON.stringify({ coords, address }));
                 });
             });
-
         });
 
         map.events.add('wheel', () => {
@@ -102,17 +101,27 @@ let App = function() {
 
     function putPointOnMap() {
 
-        let { coords, address } = JSON.parse(sessionStorage.getItem('currentMark'));
+        let { coords, address } = JSON.parse(sessionStorage.getItem('currentMark')),
+            inputName = document.querySelector('#name'),
+            inputPlace = document.querySelector('#place'),
+            inputReview = document.querySelector('#review');
 
-        let name = document.querySelector('#name').value.trim(),
-            place = document.querySelector('#place').value.trim(),
-            review = document.querySelector('#review').value.trim(),
+        let name = inputName.value.trim(),
+            place = inputPlace.value.trim(),
+            review = inputReview.value.trim(),
             date = helper.currentDate(),
             renderHeader = require('./views/cluster_header.hbs'),
             renderBody = require('./views/cluster_body.hbs'),
             renderFooter = require('./views/cluster_footer.hbs');
 
+        if (name === '' || place === '' || review === '') {
+            return messagePopup('Заполните все поля!');
+        }
+
         addReview(name, place, review, date);
+        inputName.value = '';
+        inputPlace.value = '';
+        inputReview.value = '';
 
         clusterer.add(
             new ymaps.Placemark(coords, {
@@ -183,7 +192,7 @@ let App = function() {
         const render = require('./views/window_reviews.hbs');
 
         div.innerHTML = render();
-        div.querySelector('#header span').innerHTML = helper.cutLongString(address, 44);
+        div.querySelector('#address').innerHTML = address;
 
         document.body.appendChild(div);
     }
@@ -198,9 +207,26 @@ let App = function() {
     }
 
     function closeWindowReviewsEvent(e) {
-        if (e.target.id === 'closeWindowReviews') {
+        if (e.target.id === 'close_window_reviews') {
             closeWindowReviews();
         }
+    }
+
+    function messagePopup(text) {
+
+        let div = document.createElement('div');
+
+        div.classList.add('message_popup');
+
+        div.innerText = text;
+
+        let windowReviews = document.querySelector('#window_reviews');
+
+        windowReviews.appendChild(div);
+
+        setTimeout(function() {
+            windowReviews.removeChild(div);
+        }, 2000);
     }
 
     document.addEventListener('click', (e) => {
@@ -208,10 +234,7 @@ let App = function() {
         const target = e.target;
 
         if (target.id === 'add-point-button') {
-            putPointOnMap();
-            document.querySelector('#name').value = '';
-            document.querySelector('#place').value = '';
-            document.querySelector('#review').value = '';
+            putPointOnMap();            
         }
 
         if (target.classList.contains('cluster_address')) {
@@ -219,8 +242,7 @@ let App = function() {
 
             let coords = target.id.split(','),
                 address = target.innerHTML,
-                x = e.offsetX,
-                y = e.offsetY;
+                { x, y } = helper.getOffsetPosition(e);
 
             moveMap(x, y, (newX, newY) => {
 
