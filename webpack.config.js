@@ -14,7 +14,7 @@ loaders.push({
 });
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/client.js',
     output: {
         filename: '[name].[hash].js',
         path: path.resolve('dist')
@@ -24,16 +24,11 @@ module.exports = {
         loaders
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            compress: {
-                drop_debugger: false
-            }
-        }),
         new ExtractTextPlugin('styles.css'),
         new HtmlPlugin({
-            title: 'Loft School sample project',
-            template: 'index.hbs'
+            title: 'Chat',
+            template: 'index.hbs',
+            style: 'src/css/style.css'
         }),
         new CleanWebpackPlugin(['dist'])
     ]
