@@ -7,21 +7,33 @@
 </head>
 <body>
     <div id="popup">
-        <div id="auth_popup">
-            <div id="auth_title">Авторизация</div>
-            <div id="auth_inner_block">
+        <div id="popup_auth" class="popup_item">
+            <div class="popup_item_title">Авторизация</div>
+            <div class="popup_item_inner_block">
                 <div id="auth_inputs">
                     <input type="text" placeholder="ФИО" value="">
                     <input type="text" placeholder="Ник" value="">
                 </div>
-                <div id="auth_button" onselectstart="return false" onmousedown="return false">Войти</div>
+                <div class="button" id="button_auth" onselectstart="return false" onmousedown="return false">Войти</div>
+            </div>
+        </div>
+        <div id="popup_load_photo" class="popup_item">
+            <div class="popup_item_title">Загрузка фото (JPEG не более 512 Кб)</div>
+            <div class="popup_item_inner_block">
+                <div id="popup_photo_block">
+                    <div>Перетащите фото сюда</div>
+                </div>
+                <div class="button" id="button_load_photo" onselectstart="return false" onmousedown="return false">Загрузить</div>
+                <div class="button" id="button_cancel_load_photo" onselectstart="return false" onmousedown="return false">Отмена</div>
             </div>
         </div>
     </div>
     <div id="container">
         <div id="left_block">
             <div id="current_user">
-                <div id="current_user_photo"><div>No Photo</div></div>
+                <div id="current_user_photo">
+                    <div class="image_center" style="background-image: url('/src/img/no_image.png');"></div>
+                </div>
                 <div id="current_user_name">Добро пожаловать!</div>
             </div>
             <div id="block_online_users">
