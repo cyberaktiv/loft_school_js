@@ -27,7 +27,8 @@
     "handlebars-loader": "^1.4.0",
     "html-webpack-plugin": "^2.26.0",
     "style-loader": "^0.17.0",
-    "webpack": "^2.2.0"
+    "webpack": "^2.2.0",
+    "ws": "^3.2.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

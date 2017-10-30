@@ -1,0 +1,272 @@
+body {            
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, sans-serif;
+    background-color: #E7EBF0;
+    width: 100%;
+    height: 100%;    
+}
+
+#container {
+    height: 630px;
+    width: 950px;
+    margin: 5px auto;
+}
+
+
+#left_block {
+    border-radius: 10px 0 0 10px;    
+    background-color: #FF8663;
+    float: left;
+    width: 25%;
+    height:100%;
+}
+
+#right_block {
+    border-radius: 0 10px 10px 0;
+    float: right;
+    width: 75%;
+    height: 100%;
+    background-color: #fff;
+}
+
+#block_messages {
+    height: 88%;
+    overflow: auto;
+}
+
+#block-send {
+    box-sizing: content-box;    
+}
+
+#input_message {
+    float: left;
+    margin: 10px 0 0 10px;
+    width: 550px;
+}
+
+#send_message {
+    float: right;
+    margin: 10px 10px 0 0;    
+}
+
+#input_message input {
+    
+    border-radius: 5px;
+    border: 1px solid #cecece;
+    height: 36px;
+    padding: 0 10px 0 10px;    
+    width: 540px;
+    outline: none;
+}
+
+#send_message div {
+    float: right;    
+    padding: 10px 15px 10px 15px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #FF8663;
+    cursor: pointer;
+}
+
+.data-message {
+    float: left;
+    margin: 10px;
+}
+
+#block_online_users {
+    color: #fff;    
+    margin: 15px 0 0 15px;
+    float: left;
+    display: none;
+}
+
+#title_online_users {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;    
+}
+
+#content_online_users {
+    margin-left: 10px;
+    font-size: 12px;    
+}
+
+.user_name {
+    margin: 6px 10px 0px 0;
+}
+
+.name {
+    font-weight: bold;
+    color: #494949;
+}
+
+.message {
+    font-size: 14px;
+    clear: both;    
+}
+
+.message-content {    
+    margin-top: 5px;
+    color: #6D6D6D;
+    width: 600px;
+}
+
+#popup {
+    position: absolute;
+    top: 0;
+    left: 0;    
+    min-width: 100%;
+    min-height: 100%;
+    outline: 1px solid black;    
+    background-color: rgba(24, 24, 24, 0.5);
+    display: none;
+}
+
+.popup_item {
+    z-index: 9999;
+    margin: 20px auto;
+    background-color: #F1F1F1;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#popup_auth {
+    width: 400px;        
+}
+
+#popup_load_photo {
+    width: 400px;
+    height: 290px;
+}
+
+#popup_photo_block {
+    height: 180px;
+    width: 100%;
+}
+
+#popup_photo_block img {
+    max-width: 160px;
+    max-height: 160px;
+    vertical-align: middle;
+}
+
+#popup_photo_block div {    
+    width: 160px;
+    height: 160px;    
+    line-height: 160px;
+    border: 2px dashed #cecece;
+    border-radius: 10px;
+    margin: 10px auto 0 auto;
+    color: #494949;
+    font-size: 11px;
+    text-align: center;
+}
+
+#current_user_photo {
+    float: left;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    margin: 10px 0 10px 10px;
+    color: #929292;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #fff;
+
+}
+
+.image_center {
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+#current_user_photo div {
+    width: 50px;
+    height: 50px;
+}
+
+#popup_load_photo .popup_item_inner_block {
+    height: 230px;
+}
+
+.popup_item_title {
+    color: #070025;
+    margin: 10px 0;
+}
+
+#auth_inputs input {
+    border-radius: 7px;
+    border: 1px solid #cecece;
+    height: 26px;
+    padding: 0 10px 0 10px;
+    width: 359px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+#popup_auth .popup_item_inner_block {
+    height: 110px;
+}
+
+.popup_item_inner_block {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    width: 380px;
+}
+
+#auth_inputs {    
+    float: left;
+    width: 100%;
+}
+
+.button {
+    padding: 10px 15px 10px 15px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #FF8663;
+    cursor: pointer;
+    float: right;
+}
+
+#button_load_photo {
+    margin-left: 10px;
+}
+
+#current_user {
+    width: 100%;
+    height: 70px;
+    float: right;
+}
+
+.photo {
+    margin: 10px;
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+
+.photo div {
+    margin-top: 7px;
+}
+
+.time {
+    font-size: 13px;
+    color: #929292;
+}
+
+#current_user_name {
+    float: right;    
+    margin: 19px 15px 0 0;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    width: 155px;
+    height: 33px;
+    overflow: hidden;
+}
